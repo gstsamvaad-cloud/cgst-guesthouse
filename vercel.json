@@ -1,24 +1,48 @@
 ﻿{
   "version": 2,
   "rewrites": [
-    { "source": "/api/auth/login", "destination": "/api/auth-handler?route=login" },
-    { "source": "/api/auth/logout", "destination": "/api/auth-handler?route=logout" },
-    { "source": "/api/auth/me", "destination": "/api/auth-handler?route=me" },
-    { "source": "/api/auth/register", "destination": "/api/auth-handler?route=register" },
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/public/index.html" }
+    {
+      "source": "/api/auth/login",
+      "destination": "/api/auth-handler?route=login"
+    },
+    {
+      "source": "/api/auth/logout",
+      "destination": "/api/auth-handler?route=logout"
+    },
+    {
+      "source": "/api/auth/me",
+      "destination": "/api/auth-handler?route=me"
+    },
+    {
+      "source": "/api/auth/register",
+      "destination": "/api/auth-handler?route=register"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/public/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/api/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store" }
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
       ]
     },
     {
       "source": "/public/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
     }
   ]
