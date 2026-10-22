@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGST & Customs Guest House, Kolkata — Booking Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-emblem">
+      <div class="emblem">CE</div>
+      <div class="login-emblem-text"><h2>CGST &amp; Customs Guest House</h2><p>Kolkata · Departmental Booking Portal</p></div>
+    </div>
+    <div class="login-tabs">
+      <div class="login-tab active" data-ltab="signin">Sign In</div>
+      <div class="login-tab" data-ltab="register">Register</div>
+    </div>
+    <div class="login-panel active" id="lp_signin">
+      <div class="login-err" id="si_err"></div>
+      <label>Email / User ID</label><input type="email" id="si_email" placeholder="you@example.com" autocomplete="username">
+      <label>Password</label><input type="password" id="si_pass" placeholder="••••••••" autocomplete="current-password">
+      <button class="btn" id="si_btn" type="button" style="margin-top:18px;width:100%;justify-content:center;">
+        <span id="si_btn_text">Sign In</span><span class="spinner" id="si_spinner" style="display:none;"></span>
+      </button>
+      <p class="note" style="margin-top:10px;text-align:center;">New? Switch to <b>Register</b> above.</p>
+    </div>
+    <div class="login-panel" id="lp_register">
+      <div class="login-err" id="reg_err"></div>
+      <div class="login-ok"  id="reg_ok"></div>
+      <label>Full Name &amp; Designation</label><input type="text" id="reg_name" placeholder="e.g. S. Banerjee, Superintendent">
+      <label>Email</label><input type="email" id="reg_email" placeholder="you@example.com" autocomplete="username">
+      <label>Mobile Number (10-digit)</label><input type="tel" id="reg_mobile" placeholder="9XXXXXXXXX">
+      <label>Role</label>
+      <select id="reg_role">
+        <option value="applicant">Applicant (Officer / Retired / Guest)</option>
+        <option value="officer">Approving Officer (JC / ADC)</option>
+      </select>
+      <label>Password <span class="note" style="display:inline;">(min 8 chars, 1 uppercase, 1 number)</span></label>
+      <input type="password" id="reg_pass" placeholder="Min. 8 characters" autocomplete="new-password">
+      <button class="btn" id="reg_btn" type="button" style="margin-top:18px;width:100%;justify-content:center;">
+        <span id="reg_btn_text">Create Account</span><span class="spinner" id="reg_spinner" style="display:none;"></span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="user-bar" id="userBar" style="display:none;">
+  <div class="user-bar-left"><span id="ub_name">—</span><span class="user-role-badge" id="ub_role">—</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="notif-btn" id="notifBtn" title="Notifications">🔔<span class="notif-dot" id="notifDot"></span></button>
+    <button id="logoutBtn">Sign Out</button>
+  </div>
+</div>
+<div id="inboxPanel">
+  <div class="inbox-head"><span>Notifications</span><button class="inbox-close" id="inboxClose">×</button></div>
+  <div class="inbox-body" id="inboxBody"><div class="inbox-empty">Loading…</div></div>
+</div>
+<div id="inboxBackdrop" style="display:none;position:fixed;inset:0;z-index:99;"></div>
+<div class="wrap" id="portalWrap" style="display:none;">
+  <div class="letterhead">
+    <div class="lh-left">
+      <div class="emblem">CE</div>
+      <div class="lh-title">
+        <h1>CGST &amp; Customs Guest House, Kolkata</h1>
+        <p>Departmental accommodation for serving &amp; retired officers · Governed by Departmental Guest House (ICIT) Rules, 2019</p>
+      </div>
+    </div>
+    <div class="lh-right">Approving Authority: <b>JC / ADC</b><br>City category: <b>A‑1 / Metro</b><br>Booking window: <b>online, min. 7 days prior</b></div>
+  </div>
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-tab="apply">Apply for Stay</div>
+    <div class="tab" data-tab="approve" style="display:none;">Approval Desk</div>
+    <div class="tab" data-tab="register">Allotment Register</div>
+    <div class="tab" data-tab="rooms" style="display:none;">Room Setup</div>
+  </div>
+  <div class="panel" id="panel"><div class="empty"><div class="glyph">…</div>Loading portal…</div></div>
+  <div class="footer-note">Production portal · Rates per CBIC F.No.712/171/HRD/WF/18 dated 16.12.2019 · <a href="/api/health" target="_blank" style="color:var(--ink-soft);">System status</a></div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="/js/app.js"></script>
+</body>
+</html>
